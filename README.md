@@ -1,40 +1,40 @@
-# Library Management System
+\# Library Management System
 
-# 
 
-# Workshop 1 - Programming III - UPC
 
-# 
+\*Workshop 1 - Programming III - UPC\*
 
-# Author
 
-# Daniel Josué Arrieta Fontalvo 
 
-# 
+Author
 
-# Description
+Daniel Josué Arrieta Fontalvo - 1065615550
 
-# Console application in Java to manage clients, books, and loans
 
-# of a library. In-memory storage (ArrayList).
 
-# 
+Description
 
-# How to run
+Console application in Java to manage clients, books, and loans
 
-# 1\. Open the project in NetBeans
+of a library. In-memory storage (ArrayList).
 
-# 2\. Build with Maven
 
-# 3\. Run Main.java
 
-# 
+How to run
 
-# Features
+1\. Open the project in NetBeans
 
-# \- Client CRUD
+2\. Build with Maven
 
-# \- Book CRUD
+3\. Run Main.java
 
-# \- Loan registration and returns
+
+
+Features
+
+\- Client CRUD
+
+\- Book CRUD
+
+\- Loan registration and returns
 
