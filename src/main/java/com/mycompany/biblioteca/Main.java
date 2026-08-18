@@ -166,4 +166,20 @@ public class Main {
         loans.add(loan);
         System.out.println("Loan registered successfully.");
     }
+       
+       static void returnLoan() {
+        System.out.print("Loan ID to return: ");
+        String loanId = sc.nextLine();
+
+        for (Loan l : loans) {
+            if (l.getLoanId().equals(loanId) && l.getStatus().equals("ACTIVE")) {
+                l.setStatus("RETURNED");
+                l.getBook().setAvailable(true);
+                System.out.println("Return registered successfully.");
+                return;
+            }
+        }
+        System.out.println("Active loan not found.");
+    }
+       
 }
