@@ -97,5 +97,13 @@ public class Main {
             System.out.println(b);
         }
     }
-        
+     
+    static Book searchBook(String code) {
+        for (Book b : books) {
+            if (b.getCode().equals(code)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
