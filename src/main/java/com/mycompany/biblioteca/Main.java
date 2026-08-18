@@ -74,7 +74,7 @@ public class Main {
         System.out.println("Client deleted.");
     }
         
-            static void createBook() {
+    static void createBook() {
         System.out.print("Code: ");
         String code = sc.nextLine();
         System.out.print("Title: ");
@@ -86,6 +86,16 @@ public class Main {
 
         books.add(new Book(code, title, year, author));
         System.out.println("Book created successfully.");
+    }
+            
+    static void listBooks() {
+        if (books.isEmpty()) {
+            System.out.println("No books registered.");
+            return;
+        }
+        for (Book b : books) {
+            System.out.println(b);
+        }
     }
         
 }
