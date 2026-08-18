@@ -4,43 +4,60 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    static ArrayList<Cliente> clientes = new ArrayList<>();
+    static ArrayList<Client> clients = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        // Aquí irá el menú (Fase 8)
+        // El menú irá aquí (Fase 8)
     }
-    
-        static void crearCliente() {
+
+    static void createClient() {
         System.out.print("ID: ");
         String id = sc.nextLine();
-        System.out.print("Nombre: ");
-        String nombre = sc.nextLine();
-        System.out.print("Telefono: ");
-        String telefono = sc.nextLine();
+        System.out.print("Name: ");
+        String name = sc.nextLine();
+        System.out.print("Phone: ");
+        String phone = sc.nextLine();
         System.out.print("Email: ");
         String email = sc.nextLine();
 
-        clientes.add(new Cliente(id, nombre, telefono, email));
-        System.out.println("Cliente creado con éxito.");
+        clients.add(new Client(id, name, phone, email));
+        System.out.println("Client created successfully.");
     }
-        
-            static void listarClientes() {
-        if (clientes.isEmpty()) {
-            System.out.println("No hay clientes registrados.");
+
+    static void listClients() {
+        if (clients.isEmpty()) {
+            System.out.println("No clients registered.");
             return;
         }
-        for (Cliente c : clientes) {
+        for (Client c : clients) {
             System.out.println(c);
         }
     }
-    
-                static Cliente buscarCliente(String id) {
-        for (Cliente c : clientes) {
+
+    static Client searchClient(String id) {
+        for (Client c : clients) {
             if (c.getId().equals(id)) {
                 return c;
             }
         }
         return null;
+    }
+
+    static void updateClient() {
+        System.out.print("Client ID to update: ");
+        String id = sc.nextLine();
+        Client c = searchClient(id);
+        if (c == null) {
+            System.out.println("Client not found.");
+            return;
+        }
+        System.out.print("New name: ");
+        c.setName(sc.nextLine());
+        System.out.print("New phone: ");
+        c.setPhone(sc.nextLine());
+        System.out.print("New email: ");
+        c.setEmail(sc.nextLine());
+        System.out.println("Client updated.");
     }
 }
