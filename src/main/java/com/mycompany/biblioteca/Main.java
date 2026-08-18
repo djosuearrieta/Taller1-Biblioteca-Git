@@ -106,4 +106,22 @@ public class Main {
         }
         return null;
     }
+    
+        static void updateBook() {
+        System.out.print("Book code to update: ");
+        String code = sc.nextLine();
+        Book b = searchBook(code);
+        if (b == null) {
+            System.out.println("Book not found.");
+            return;
+        }
+        System.out.print("New title: ");
+        b.setTitle(sc.nextLine());
+        System.out.print("New author: ");
+        b.setAuthor(sc.nextLine());
+        System.out.print("New publication year: ");
+        b.setPublicationYear(sc.nextLine());
+        System.out.println("Book updated.");
+    }
+    
 }
