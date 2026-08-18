@@ -9,8 +9,53 @@ public class Main {
     static ArrayList<Loan> loans = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
 
-    public static void main(String[] args) {
-        // El menú irá aquí (Fase 8)
+        public static void main(String[] args) {
+        int option;
+        do {
+            System.out.println("\n===== LIBRARY SYSTEM =====");
+            System.out.println("1. Create client");
+            System.out.println("2. List clients");
+            System.out.println("3. Search client");
+            System.out.println("4. Update client");
+            System.out.println("5. Delete client");
+            System.out.println("6. Create book");
+            System.out.println("7. List books");
+            System.out.println("8. Search book");
+            System.out.println("9. Update book");
+            System.out.println("10. Delete book");
+            System.out.println("11. Register loan");
+            System.out.println("12. Register return");
+            System.out.println("13. List active loans");
+            System.out.println("0. Exit");
+            System.out.print("Choose an option: ");
+            option = Integer.parseInt(sc.nextLine());
+
+            switch (option) {
+                case 1 -> createClient();
+                case 2 -> listClients();
+                case 3 -> {
+                    System.out.print("ID to search: ");
+                    Client c = searchClient(sc.nextLine());
+                    System.out.println(c != null ? c : "Not found.");
+                }
+                case 4 -> updateClient();
+                case 5 -> deleteClient();
+                case 6 -> createBook();
+                case 7 -> listBooks();
+                case 8 -> {
+                    System.out.print("Code to search: ");
+                    Book b = searchBook(sc.nextLine());
+                    System.out.println(b != null ? b : "Not found.");
+                }
+                case 9 -> updateBook();
+                case 10 -> deleteBook();
+                case 11 -> createLoan();
+                case 12 -> returnLoan();
+                case 13 -> listActiveLoans();
+                case 0 -> System.out.println("Exiting...");
+                default -> System.out.println("Invalid option.");
+            }
+        } while (option != 0);
     }
 
     static void createClient() {
