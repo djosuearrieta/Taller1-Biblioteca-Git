@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     static ArrayList<Client> clients = new ArrayList<>();
+    static ArrayList<Book> books = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -72,4 +73,67 @@ public class Main {
         clients.remove(c);
         System.out.println("Client deleted.");
     }
+        
+    static void createBook() {
+        System.out.print("Code: ");
+        String code = sc.nextLine();
+        System.out.print("Title: ");
+        String title = sc.nextLine();
+        System.out.print("Publication year: ");
+        String year = sc.nextLine();
+        System.out.print("Author: ");
+        String author = sc.nextLine();
+
+        books.add(new Book(code, title, year, author));
+        System.out.println("Book created successfully.");
+    }
+            
+    static void listBooks() {
+        if (books.isEmpty()) {
+            System.out.println("No books registered.");
+            return;
+        }
+        for (Book b : books) {
+            System.out.println(b);
+        }
+    }
+     
+    static Book searchBook(String code) {
+        for (Book b : books) {
+            if (b.getCode().equals(code)) {
+                return b;
+            }
+        }
+        return null;
+    }
+    
+        static void updateBook() {
+        System.out.print("Book code to update: ");
+        String code = sc.nextLine();
+        Book b = searchBook(code);
+        if (b == null) {
+            System.out.println("Book not found.");
+            return;
+        }
+        System.out.print("New title: ");
+        b.setTitle(sc.nextLine());
+        System.out.print("New author: ");
+        b.setAuthor(sc.nextLine());
+        System.out.print("New publication year: ");
+        b.setPublicationYear(sc.nextLine());
+        System.out.println("Book updated.");
+    }
+        
+            static void deleteBook() {
+        System.out.print("Book code to delete: ");
+        String code = sc.nextLine();
+        Book b = searchBook(code);
+        if (b == null) {
+            System.out.println("Book not found.");
+            return;
+        }
+        books.remove(b);
+        System.out.println("Book deleted.");
+    }
+    
 }
