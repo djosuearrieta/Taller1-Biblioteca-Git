@@ -123,5 +123,17 @@ public class Main {
         b.setPublicationYear(sc.nextLine());
         System.out.println("Book updated.");
     }
+        
+            static void deleteBook() {
+        System.out.print("Book code to delete: ");
+        String code = sc.nextLine();
+        Book b = searchBook(code);
+        if (b == null) {
+            System.out.println("Book not found.");
+            return;
+        }
+        books.remove(b);
+        System.out.println("Book deleted.");
+    }
     
 }
