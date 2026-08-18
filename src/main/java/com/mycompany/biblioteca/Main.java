@@ -60,4 +60,16 @@ public class Main {
         c.setEmail(sc.nextLine());
         System.out.println("Client updated.");
     }
+    
+        static void deleteClient() {
+        System.out.print("Client ID to delete: ");
+        String id = sc.nextLine();
+        Client c = searchClient(id);
+        if (c == null) {
+            System.out.println("Client not found.");
+            return;
+        }
+        clients.remove(c);
+        System.out.println("Client deleted.");
+    }
 }
